@@ -145,7 +145,7 @@ class AstAnalyzer(ast.NodeVisitor):
             try:
                 a = default.value
             except:
-                if not isinstance(default, ast.Tuple):  # the only immutable object is tuple
+                if not isinstance(default, ast.Tuple):  # the only immutable object left is tuple
                     if node.lineno not in self.mutables:
                         self.issues.append(f"Line {node.lineno}: S012 Default argument is mutable")
                         self.mutables.add(node.lineno)
